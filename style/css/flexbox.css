@@ -1,0 +1,22 @@
+.flex-container {
+    display:flex;
+    padding: 5px;
+    flex-direction: row;
+}
+
+.flex-textbox, .flex-textbox-2 {
+    width: 50%;
+    padding: 5px;
+    text-align: justify;
+    background-color: orange;
+}
+
+
+.flex-img-container-2 {
+    width: 50%;
+}
+
+.flex-img-container-4 {
+    width: 25%;
+}
+

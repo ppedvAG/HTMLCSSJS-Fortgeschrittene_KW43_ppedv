@@ -1,0 +1,11 @@
+$bgcolor: orange;
+$textcolor : red;
+$fontsize: 12px;
+
+/*Verwenden von Variablen in Verbindung mit CSS*/
+
+div {
+    background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize; 
+}

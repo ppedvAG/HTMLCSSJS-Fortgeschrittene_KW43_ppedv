@@ -1,0 +1,84 @@
+@import "sassCommon.css";
+
+/*BEISPIEL 1: Verwenden von Variablen */
+/* verwenden von Variablen */
+
+/*Definition von Variablen */
+
+$bgcolor: lightblue;
+$textcolor : darkblue;
+$fontsize: 18px;
+
+/*Verwenden von Variablen in Verbindung mit CSS*/
+
+body {
+    background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize; 
+}
+
+
+/*Beispiel 2 - Verschachteln*/
+/*font-size / font-familiy / font-weight
+font: {
+    size: 18px;
+    family: Helvetica, sans-serif;
+    weight: bold;
+}
+
+/*
+CSS Ausgabe:
+font-family: Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold; 
+ */
+
+
+
+ /*Beispiel 3 - Vererbung*/
+
+ .button-basic
+ {
+    padding: 15px;
+    width: 25px;
+    height: 12px;
+ }
+
+ .button-report
+ {
+    @extend .button-basic; /* Alle Regeln von .button basic, werden hier her übertragen */
+    
+    padding: 15px;
+    width: 25px;
+    height: 12px;
+    background-color: blue;
+ }
+
+ .button-alert
+ {
+    @extend .button-basic; /* Alle Regeln von .button basic, werden hier her übertragen */
+    padding: 15px;
+    width: 25px;
+    height: 12px;
+    background-color: red;
+ }
+
+
+
+
+ /*Beispiel 4 - mixin */
+
+
+ @mixin bordered($color, $width) {
+    border: $width solid $color;
+ }
+
+ .MyArticle {
+    @include bordered(blue, 1px);
+ }
+
+ .MyNotes {
+    @include bordered(red, 2px);
+ }
+
+

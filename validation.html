@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form-Validierung</title>
+        
+        <!-- Einbindung von JavaScript Datei-->
+        <script src="/scripts/validation.js" defer></script>
+    </head>
+
+    <body>
+        <!-- BEISPIEL1: ohne JavaScript - Formular Input-Eingabe mit Datalist -->
+
+        <!-- wir sehen nur die Textbox, bei leerer Textbox bitte Doppelklick, um die Liste der Früchte zu sehen -->
+        <input list="fruits" placeholder="Früchte" type="text" id="fruit-choice" >
+
+        <!-- Ich bin eine Liste mit Vorschlägen -->
+        <datalist id="fruits">
+            <option value="Banane"></option>
+            <option value="Apfel"></option>
+            <option value="Erdbeere"></option>
+            <option value="Himbeere"></option>
+            <option value="Ananas"></option>
+        </datalist>
+
+
+
+         <!-- BEISPIEL1: ohne JavaScript -> weil wir required verwenden Passworteingabe -->
+         <form>
+            <!--  Beispiel 1.1 -> required -> Ein Muss-Feld -->
+            <input type="text" required id="ice-cream" placeholder="Welche Eissort magst du?">
+            <input type="password" required minlength="8" placeholder="password" id="password">
+            <input type="submit" id="submit-button" value="Absenden">
+
+         </form>
+
+    </body>
+</html>
