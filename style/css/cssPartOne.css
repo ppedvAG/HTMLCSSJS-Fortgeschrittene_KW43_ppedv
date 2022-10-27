@@ -1,0 +1,117 @@
+/* Verschiede Selektoren */
+
+
+/* p Element */
+/* #Id */
+/* .Class */
+/* Kombinationen */
+
+/* Alle h2 - Tags (Überschriften) werden rot angezeigt */
+
+h2 {
+    color:red;
+}
+
+h2#first-article {
+    color:blue;
+}
+
+/* ID-Selektor */ 
+#first-article {
+    color: chartreuse;
+}
+
+/* Jedes <li> und <p> Tag wird hier formattiert */
+li, p {
+    color:rgba((12, 12, 12, 0.779), green, blue, alpha);
+}
+
+/* Nachfahr/Descendant-Selektor */
+nav li {
+    list-style-type: none;
+    font-size: medium;
+}
+
+ul li {
+    color:green;
+}
+
+ul li a {
+    color: purple
+}
+
+
+
+
+/* Direkter - Sibling - Selector */
+/* Es werden nur p Elemente, die direkt nach dem h2 kommen und auf der selbenen Ebene stehen */
+h2 + p {
+    color:orange;
+}
+
+
+/* General Sibling Selector */
+/* Selektiert alle Elemente die auf der selben Stufe stehen wie das erstgenannte Element */
+
+h2 ~ p {
+    color: lightsalmon;
+}
+
+
+/* Attributs-Selektor: */
+
+a[href="#"] {
+    color: lightblue;
+}
+
+/* Können genau angeben wie das Attribut heißen soll */
+
+/* Können die Werte flexibel abfangen */
+
+/*
+    element[attributsName="Wert"] => Attribut mit genauem Wert
+    element[attributsName^="Wert"] => Attributswert muss mit Wert beginnen
+    element[attributsName$="Wert"] => Attributswert muss mit Wert enden
+    element[attributsName*="Wert"] => Attributswert muss Wert enthalten
+    element:not([attributsname="Wert"]) => Elementsattribut darf den Wert nicht enthalten
+
+*/
+
+
+
+
+/* Pseudoelemente */
+
+/* Werden an einen anderen Selektor angehängt */
+/* Beginnen mit ::PseudoElementName  */
+
+/*
+    ::after - Fügt etwas als letztes Child eines Elementes an
+    ::before - Fügt etwas als erstes Child eines Elementes an
+*/
+
+li>a::before {
+    content: "Ich bin before ";
+}
+
+li>a::after {
+    content: " Ich bin after";
+}
+
+
+h2#first-article::first-letter {
+    font-size: 48px;
+}
+
+h2+p::first-line {
+    background-color: aquamarine;
+}
+
+*:hover {
+    color:orange;
+}
+
+
+
+
+
