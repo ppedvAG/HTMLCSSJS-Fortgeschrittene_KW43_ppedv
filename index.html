@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Metainformationen -->
+        <title>Hallo liebe Teilnehmer</title>
+    </head>
+
+    <body>
+        <!-- Überschriften werden mit dem <h1> ... bis hin zu <h6> -->
+        <h1>Guten Morgen liebe Teilnehmer</h1>
+        <h2>ich hoffe der Kaffee war gut</h2>
+        <h6>Wir werden viel lernen</h6>
+
+
+
+        <section>
+            <article>
+                <h2>Was ist ein Emmet?</h2>
+                <p>Kurzform um HTML zu schreiben. Schneller und einfach als alles selbst zu tippen. -> Früher -> Zen Coding</p>
+
+                <h3>We funktioniert es?</h3>
+                <p>Ich schreibe den Element-Name (Tag-Name) und drücke [Tabulator] - Tase</p>
+
+                <p class="test">Stellt auch weitere Funktionalität bereit wie das einsetzten von Ids und Klassen</p>
+
+                <h3>Emmet-Syntax</h3>
+                <ul>
+                    <li>ElementName + Tab => Erstellt öffnenden und (falls nötigen) schließenden Tag</li>
+                    <li>Element-Name.className + Tab => Erstellt Tag mit entsprechender Klasse</li>
+                    <li id="important">elementNameidName + Tab => Erstellt den Tag mit entsprechender Id</li>
+                    <li>element1>element2 + Tab => Erstellt element2 als Child von element1</li>
+                    <li>element1+element2 + Tab => Erstellt element1 und element2 als Siblings</li>
+                    <li>element1>element2^>element3 + Tab = > element3 wird auf der selben Ebene wie element1 erstellt</li>
+
+                    <!-- weitere Emit Techniken-->
+                    <li>element1*n + Tab => Erstellt element1 n-Mal</li>
+                    <li>element1>(element2+element3)*4 + Tab => Würde viermal element2 benahcbart von element3 innerhalb von element1 erstellen</li>
+                    <li>element1[attribut=wert] + Tab => Erstellt das Element mit dem entsprechenden Attribut</li>
+                    <li>element1#$test + Tab => Stellt uns Nummerierung zur Verfügung, meistens in Kombi mit Multiplikator benutzt</li>
+                    <li>element1#test$@n*3 + Tab => Erstellt element1 3 mal mit Nummerierung und n als Startzahl. Vor dem n kann noch ein Minus stehen, dann würde n die Endzahl sein. Steht das Minus alleine wird absteigend nummeriert</li>
+                    <li>element1{text} + Tab => Erstellt element1 mit dem entsprechenden Text</li>
+                    <li>Bei lorem kann ich direkt hinter lorem eine Zahl schreiben, also ohne das Mal-Zeichen, und dann werden mir entsprechend viele Wörter generiert</li>
+                </ul>
+            </article>
+
+
+            <artcile>
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est a exercitationem, illo assumenda reiciendis doloremque ducimus nostrum quaerat voluptate veniam voluptas repellendus illum commodi veritatis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est a exercitationem, illo assumenda reiciendis doloremque ducimus nostrum quaerat voluptate veniam voluptas repellendus illum commodi veritatis.</p>
+            
+                <ol>
+                    <li class="test2"></li>
+                    <li class="test2"></li>
+                    <li class="test2"></li>
+                    <li class="test2"></li>
+                </ol>
+            </artcile>
+
+            
+
+
+            <article>
+                <h2>Artikel und Sektionen</h2>
+                <p>Können beliebig getausch werden. Stehen bei für eigenständige Teile der Seite, die Informationen übermitteln.
+                    Sollten im Idealfall ein eigenes Heading haben. Können ineinander verschachtelt werden. 
+                    Sind etwas besser für SEO als ein Div, 
+                </p>
+            </article>
+
+            <article>
+                <h2>Der picture Tag</h2>
+                <p>Der picture-Tag bietet eine Alternative zu dem img-Tag</p>
+                <picture>
+                    <source media="(min-width: 1080px)" srcset="https://via.placeholder.com/550x250">
+                    <source media="(min-width: 750px)" srcset="https://via.placeholder.com/325x125">
+                    <source media="(min-width: 500px)" srcset="https://via.placeholder.com/225x75">
+                    <img src="https://via.placeholder.com/150x50" alt="Platzhalter">
+                </picture>
+            </article>
+
+
+        </section>
+
+    </body>
+</html>
