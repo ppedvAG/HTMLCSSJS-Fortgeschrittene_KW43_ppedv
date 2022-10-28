@@ -24,16 +24,41 @@
             <option value="Ananas"></option>
         </datalist>
 
-
-
-         <!-- BEISPIEL1: ohne JavaScript -> weil wir required verwenden Passworteingabe -->
+         <!-- BEISPIEL2: ohne/ohne JavaScript -> weil wir required verwenden Passworteingabe -->
          <form>
-            <!--  Beispiel 1.1 -> required -> Ein Muss-Feld -->
+            <!--  Beispiel 2.1 -> required -> Ein Muss-Feld -->
             <input type="text" required id="ice-cream" placeholder="Welche Eissort magst du?">
+
+            <!-- Beispiel 2.2 Passwort - Eingabe wird mit JS- EventListener gearbeitet-->
             <input type="password" required minlength="8" placeholder="password" id="password">
             <input type="submit" id="submit-button" value="Absenden">
-
          </form>
+
+          <!-- BEISPIEL3: mit JavaScript -> weil wir required verwenden Passworteingabe -->
+
+          <form>
+            <input type="text" id="zipCode" placeholder="PLZ">
+            <select id = "country">
+                <option value="ch">Schweiz</option>
+                <option value="de">Deutschland</option>
+                <option value="fr">Frankreich</option>
+            </select>
+            <input type="submit" value="Absenden">
+          </form>
+
+
+          <form>
+            <!-- autocomplete-Attribut bei password -->
+            <!-- Haben drei gültige Werte: -->
+            <!-- 
+                "current-password" - Browser wird, falls ein Passwort gespeichert ist, vorschlagen dieses einzufügen
+                "old-password" - Browser wird bis jetzt gespeichertes Passwort einfügen
+                "new-password" - Browser wird fragen ob er dieses Passwort in Zukunft speichern soll
+            -->
+                <input type="password" name="password" id="passwordEx" minlength="8" placeholder="Passwort">
+                <input type="password" name="confirmation" id="confirmation" placeholder="Passwort bestätigen">
+                <input type="submit" value="Anmelden" id="pwSubmit">
+            </form>
 
     </body>
 </html>

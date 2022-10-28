@@ -47,3 +47,70 @@ document.querySelector("form").addEventListener("submit", function (ev) {
     // Auf die Form angewendet verhindert event.preventDefault() das Neuladen der Seite bei senden der Form
     ev.preventDefault();
 })
+
+//Zugriff auf die HTML-Element
+const zipCode = document.querySelector("#zipCode");
+const country = document.querySelector("#country"); //ComboBox wird selektiert (Länderauswahl)
+
+function checkPLZ() {
+     // Hier legen wir unsere Einschränkungen fest, in diesem Fall wie dei PLZ aufgebaut sind
+     const constraints = {
+        // Zwei \ um den zweiten \ zu escapen
+        ch: ['^(CH-)?\\d{4}$', "Schweizerische PLZ müssen aus genau 4 Zeichen bestehen: e.g. CH-1950 or 1950"],
+        fr: ['^(F-)?\\d{5}$', "Französische PLZ müssen aus genau 5 Zeichen bestehen: e.g. F-75012 or 75012"],
+        de: ['^(D-)?\\d{5}$', "Deutsche PLZ müssen aus genau 5 Zeichen bestehen: e.g. D-12345 or 12345"]
+    }
+
+    //Werte werden abgerufen
+    const countryValue = country.value;
+    const zipCodeValue = zipCode.value;
+
+    //// Hier wird eine konkrete Einschränkung ausgewählt basierend auf dem ausgewählten Land
+    //Wir verwenden hier JavaScript OOP -> Klasse wird instanziiert
+    //PLZ Muster wird ausgelesen
+    const constraint = new RegExp(constraints[countryValue][0],"");
+
+
+    // Hier wird geprüft ob die PLZ mit der RegEx aus constraint übereinstimmt
+    if (constraint.test(zipCodeValue)) {
+        //Wenn es übereinstimmt 
+        // Falls ja wird die CustomValidity auf ein leeren String gesetzt => Input ist gültig
+        zipCode.setCustomValidity("");
+    }
+    else {
+        // Falls es nicht mit der RegEx übereinstimmt, setzen wir die Fehlermeldung auf die im Array enthaltene
+        zipCode.setCustomValidity(constraints[countryValue][1]); //Wenn für Frankreich eine falsche PLZ eingegeben wurde, wird diese Nachricht ausgegeben -> "Französische PLZ müssen aus genau 5 Zeichen bestehen: e.g. F-75012 or 75012"
+        zipCode.reportValidity();
+    }
+}
+
+zipCode.addEventListener("input", checkPLZ);
+country.addEventListener("input", checkPLZ);
+
+
+
+const password = document.querySelector("#passwordEx");
+const confirmation = document.querySelector("#confirmation");
+const submitBtn = document.querySelector("#pwSubmit");
+
+function checkPassword() {
+
+    // === Prüft ob Typ und Wert gleich sind
+    // !== Prüft ob Typ oder Wert ungleich sind
+
+    if (password.value === confirmation.value) {
+        confirmation.setCustomValidity("");
+
+        submitBtn.removeAttribute("disabled");
+    }
+    else
+    {
+        confirmation.setCustomValidity("Die Passwörter stimmen nicht überein");
+        confirmation.reportValidity("");
+        submitBtn.setAttribute("disabled", "");
+    }
+}
+
+password.addEventListener("keyup", checkPassword);
+
+confirmation.addEventListener("change", checkPassword);
