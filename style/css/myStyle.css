@@ -1,0 +1,40 @@
+p {
+    color: black;
+}
+/* Ich bin ein CSS-Kommentar */
+
+
+/* Selectors in CSS */
+
+/* Element-Selector / Elements-Selektor */
+/* Stylt alle Elemente des entschprechenden Typen */
+/* Syntax:
+    elementName (z.B. p) {Property:Value;}
+*/
+
+/* Universal-Selector */
+/* Stylt alle Elemente */
+/* Syntax: * {Regel} */
+/* Spezifität: 0, stylt also nur Elemente, für die das Property noch nicht festgelegt wurde */
+* {
+    color:yellow;
+    /* <p> Wird nicht gestylt, da der Elements-Selektor spezifischer ist */
+}
+
+/* Id-Selector */
+/* Stylt jedes Element mit der entsprechenden ID, also im Optimalfall nur ein einziges */
+/* Syntax: #idNamen {Regel} */
+/* Ist der spezifischste Selektor */
+#site-top {
+    font-size: 42px;
+    color: black;
+}
+
+/* Class-Selector */
+/* Stylt alle Elemente mit der entsprechenden Klasse */
+/* Syntax: .className {Regel} */
+/* Ist der zweitspezifischte Selektor, nach dem ID-Selektor */
+.cool-paragraph {
+    color:slategrey;
+    font-size: 36px;
+}

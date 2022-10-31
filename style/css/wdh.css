@@ -1,0 +1,228 @@
+/* Syntax:
+
+    selector {
+        attribute: value;
+        attribute2: value;
+    }
+
+    Universalselektor *
+        Stylt alle Elemente
+    
+    Elementsselektor p {}
+        Stylt alle entsprechende Elemente
+
+    Klassenselektor .klassenNamen {}
+        Stylt alle Elemente die Teil der Klasse sind
+
+    Idselektor #idNamen {}
+        Stylt das Element mit der entsprechenden Id
+*/
+
+* {
+    color:grey;
+}
+
+p {
+    color: black;
+}
+
+h2 {
+    color: pink;
+}
+
+.chapter-heading {
+    color: black;
+    font-size: 36px;
+}
+
+#first-paragraph {
+    display: none;
+}
+
+td, th {
+    color:green;
+}
+
+/* 
+    Advanced Selecotrs:
+
+    Gruppen Selector: el1, el2, el3.... {} group-selector
+
+    Direkte Geschwister-Selektor: el1 + el2 {} adjacent sibling selecot
+
+    Allgemeine Geschwister-Selektor el1 ~ el2 {} General sibling selector
+
+    Allgemeiner Nachfahren-Selektor el1 el2 {} General descendant selector
+        Stylt alle Nachfahren, egal wie weit sie verschachtelt sind
+    Direkte Nachfahren-Selektor el1 > el2 {} Child-Selector
+
+    Id/Klassen kombinieren el.Klasse {}
+                            el#id {}
+
+*/
+
+p + h2 {
+    text-decoration: underline;
+}
+
+h1 ~ h2 {
+    text-decoration: overline;
+    /* Überschreibt die Regel direkt darüber, da sie gleich spezifisch sind und somit die letzte definierte Regel gilt */
+}
+
+ul li {
+    color:blue;
+}
+
+ul > li {
+    color:brown;
+}
+
+h1.chapter-heading {
+    font-size: 42px;
+    margin: 2em;
+}
+
+/* Größeneinheiten in CSS */
+
+/* Absolute Einheiten */
+/* 
+    px, Pixel 1/96 inch
+    in, Inch ca 2,5 cm
+    pt, Point 1/72 inch
+    pc, Pica entspricht 12pt
+    mm, milimeter
+    cm, centimeter
+
+    Werden nicht mehr so häufig verwendet, da sie immer die selbe Größe haben
+*/
+
+/* Relative Einheiten */
+/* 
+    em, element Relativ zur Schriftgröße des Elements, d.h. 2em entsprechen der doppelten Schriftgröße des Elements
+    rem, Relativ zur Schriftgröße des root-Elements (html)
+    vw, Relativ zu 1% der breite des Viewports (Browserfensters)
+    vh, Relativ zu 1% der höhe des Viewports (Browserfenster)
+    vmin, Relativ zu 1% der kleiner Seite des Viewports
+    vmax, Relativ zu 1% der größeren Seite des Viewports
+    %, Relativ zur Größe des Elternelementes
+    ch, Relativ zur Breite der 0 der ausgewählten Schriftart
+    ex, Relativ zur Höhe der x-Achse des BUchstabens A in der derzeitigen Schriftart
+*/
+
+/* 
+    Das Box-Modell
+    Von innen nach außen in mehrere Unterblöcke aufgeteilt:
+        Content- der tatsächliche Inhalt z.B. Text oder Bild des Elements
+            Größe des Contents kann mit height und width angepasst werden
+        Padding - transparenter Abstand ziwschen Content und Border wird mit setzen von backgroundcolor eingefärbt => zählt als Teil des Elements
+        Border - Grenze um das Padding kann beliebig gefärbt und breite der Balken angepasst werden
+        Margin - Transparente Rand um die Border herum, dieser wird nicht von background-color eingefärbt
+*/
+
+div#box {
+    height: 50px;
+    background-color: aquamarine;
+    padding: 5rem;
+    /* border: 10px solid red;
+        Shorthand
+        border: breite stil farbe
+    */
+    border-width: 10px;
+    border-color: red;
+    border-style: dotted;
+    border-radius: 100%;
+    /* Mit border-radius können wir die Kanten abrunden */
+    /* border-bottom: 0px;
+    border-right: 15px;
+    border-left: 0px;
+    border-top: 35px; 
+    Können so jede Seite einzeln anpassen
+    Können auch hier den Shorthand benutzen*/
+    margin: 2.5rem;
+}
+
+#pic {
+    border: 5px double black;
+    padding: 10px;
+    margin: auto;
+    display:block;
+    /* marign: auto versucht jeweils liks und rechts den selben Abstand einzubauen und zentriert somit die meisten Block elemente  */
+}
+/* Wenn wir Texte zentrieren wollen: text-align: center; */
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+/* Die basic display Arten von CSS */
+
+/* 
+    display: block; (Basis: div)
+    Beginnen immer in einer neuen Zeile und beanspruchen die volle Breite des Elternelementes
+    Beachten height und width
+    display: inline; (Basis: span)
+    Starten nicht zwingend in einer neuen Zeile und beanspruchen nur so viel Platz wie nötig
+    Ignorieren height und width
+    display: inline-block; (Keine Basis)
+    Kein Element ist standardmäßig inline-block, muss immer per Regel definiert werden
+    Mischt die Eigenschaften von inline und block,da es heigth und width beachtet, aber trtozdem mehere Elemente pro Zeile dargestellt werden können
+    display: none; (Keine Basis)
+    Versteckt das Element und die Seite verhält sich so als ob das Element nicht exisiteren würde
+    Wird oft in Kombi mit JavaScript benutzt um Elemente zu verstecken
+*/
+/* 
+    Alternative zu display:none;
+    visibility: hidden;
+    Element wird versteckt, aber es behält seinen Platz im Layout bei
+    Kann zu s.g. weißen Flecken führen, also Lücken wo eigentlich ein Element wäre, es aber durch hidden versteckt wird
+    Inzwischen größtenteils durch display: none; abeglöst
+*/
+
+/* Positions in CSS */
+/* 
+    position: static; 
+    Jedes HTML Element ist standardmäßig static,
+    Element wird statisch platziert und ignoriert jegliche Positionsbeeinflussende Attribute 
+    Position richtet sich nach AUfbau des HTML Codes
+
+
+    position: relative;
+    Beachtet die positionsbeeinflussenden Attribute top, bottom, left und right
+    Element verschiebt sich relativ zu seiner Standardposition
+    Andere Elemente nehmen nicht den Ursprünglichen Platz des Elementes ein
+
+    position: fixed;
+    Beachtet top, bottom, left und right
+    Element verschiebt sich relativ zum Sichtfeld
+
+    position: sticky;
+    Wechselt zwischen position: fixed und position: static;
+    Sobald man an dem Element vorbeiscrollen würde, wechselt es auf fixed und bleibt dadurch dann immer im Sichtfeld des Users
+    z.B. für Navbars
+
+    position: absolute;
+    Funktioniert ähnlich wie fixed, aber verschiebt sich nicht relativ zum sichtfeld sondern realtiv zum nächsten Vorfahren der relative oder absolute als position hat
+    Falls kein Vorfahr relative oder absolute hat wird es in Relation zum html Tag verschoben
+*/
+
+#div1, #div2 {
+    height: 50px;
+    background-color: red;
+    position: relative;
+}
+
+#div2 {
+    background-color: green;
+    position: absolute;
+    bottom: 50px;
+    float:right;
+}
+
+/* Float */
+/* Float ändert z.B. ein Bild von block auf inline, es erlaubt also mehrere Elemente in einer Zeile darzustellen
+Float macht es uns aber nochmal komfortabler, da wir direkt sagen können ob es sich rechts oder links einordnen soll
+https://developer.mozilla.org/en-US/docs/Web/CSS/float
+Anwendungsfall meistens Bild in Fließtext einbauen
+*/
